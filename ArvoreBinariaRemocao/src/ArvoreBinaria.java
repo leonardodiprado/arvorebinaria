@@ -61,5 +61,33 @@ public class ArvoreBinaria {
         return this.raiz;
     }
 
-}
+    public void removerNoFolha(int valor) {
+        if (this.raiz == null) {
+            return;
+        }
+        No atual = this.raiz;
+        No pai = null;
 
+        while (atual != null) {
+            if (valor == atual.getValor()) {
+                if (atual.getEsq() == null && atual.getDir() == null) {
+
+                    if (pai == null) {
+                        this.raiz = null;
+                    } else if (pai.getEsq() == atual) {
+                        pai.setEsq(null);
+                    } else {
+                        pai.setDir(null);
+                    }
+                }
+                return;
+            } else if (valor < atual.getValor()) {
+                pai = atual;
+                atual = atual.getEsq();
+            } else {
+                pai = atual;
+                atual = atual.getDir();
+            }
+        }
+    }
+}

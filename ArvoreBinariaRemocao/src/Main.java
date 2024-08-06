@@ -8,8 +8,14 @@ public class Main {
         arvoreBinaria.inserir(37);
         arvoreBinaria.inserir(-3);
         arvoreBinaria.inserir(12);
-        arvoreBinaria.posOrdem(arvoreBinaria.getRaiz());
+
+        System.out.println("Árvore original:");
+        arvoreBinaria.emOrdem(arvoreBinaria.getRaiz());
+
+        arvoreBinaria.removerNoFolha(12);
+
+
+        System.out.println("Árvore após remover folhas:");
+        arvoreBinaria.emOrdem(arvoreBinaria.getRaiz());
     }
-
-
 }
