@@ -8,14 +8,18 @@ public class Main {
         arvoreBinaria.inserir(37);
         arvoreBinaria.inserir(-3);
         arvoreBinaria.inserir(12);
+        arvoreBinaria.inserir(75);
+        arvoreBinaria.inserir(85);
+        arvoreBinaria.inserir(90);
+        arvoreBinaria.inserir(88);
 
         System.out.println("Árvore original:");
-        arvoreBinaria.emOrdem(arvoreBinaria.getRaiz());
+        arvoreBinaria.preOrdem(arvoreBinaria.getRaiz());
 
-        arvoreBinaria.removerNoFolha(12);
+        arvoreBinaria.remover(12);
+        arvoreBinaria.remover(75);
 
-
-        System.out.println("Árvore após remover folhas:");
-        arvoreBinaria.emOrdem(arvoreBinaria.getRaiz());
+        System.out.println("Árvore após remoções:");
+        arvoreBinaria.preOrdem(arvoreBinaria.getRaiz());
     }
 }
