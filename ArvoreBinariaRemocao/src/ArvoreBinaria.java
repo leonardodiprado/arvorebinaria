@@ -76,6 +76,7 @@ public class ArvoreBinaria {
             if (valor == atual.getValor()) {
                 if (atual.getEsq() == null && atual.getDir() == null) {
 
+                    /*caso onde o nó folha é o nó raiz (árvore com apenas um nó)*/
                     if (pai == null) {
                         this.raiz = null;
                     } else if (pai.getEsq() == atual) {
@@ -107,12 +108,15 @@ public class ArvoreBinaria {
             if (valor == atual.getValor()) {
 
                 if ((atual.getEsq() == null && atual.getDir() != null) || (atual.getEsq() != null && atual.getDir() == null)) {
+
                     No filho;
                     if (atual.getEsq() != null) {
                         filho = atual.getEsq();
                     } else {
                         filho = atual.getDir();
                     }
+                    /*aqui identifica onde esta o filho que vai entrar no lugar do removido, se está
+                    a esquerda ou a direita (declara variavel No filho para guardar o filho) */
 
                     if (pai == null) {
                         this.raiz = filho;
@@ -146,12 +150,14 @@ public class ArvoreBinaria {
                 if (atual.getEsq() != null && atual.getDir() != null) {
                     No sucessor = atual.getDir();
                     No paiSucessor = atual;
+                    /*declara a variavel No sucessor para procurar o sucessor (que aqui não é necessariamente o filho)
+                    na subarvore a direita, essa variavel armazena areferencia ao nó sucessor*/
 
                     while (sucessor.getEsq() != null) {
                         paiSucessor = sucessor;
                         sucessor = sucessor.getEsq();
                     }
-                    /*dentro do percurso da subárvore direita do nó a ser removido o laço se move o máximo
+                    /*dentro do percurso da subarvore direita do nó a ser removido o laço se move o máximo
                     para a esquerda até a esquerda ser null, garantindo assim que o nó sucessor será o menor da
                     subárvore direita*/
 
